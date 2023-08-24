@@ -4,9 +4,6 @@ NAMES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "cart" "user" "shipping"
 INSTANCE_TYPE=""
 IMAGE_ID=ami-03265a0778a880afb
 SECURITY_GROUP=sg-034b8c610c8a714d3
-R="\e[31m" 
-G="\e[32m" 
-Y="\e[33m"
 
 #conditions
 #if mysql or mongo instance should be in t3.medium and all other items instance should be t3.micro
@@ -21,12 +18,12 @@ do
        INSTANCE_TYPE="t3.micro"
     
    fi
-    echo "$Y Creating $i...........Instance"
+    echo "Creating $i...........Instance"
 
     IP_ADDRESS=$(aws ec2 run-instances --image-id $IMAGE_ID --instance-type $INSTANCE_TYPE  --security-group-ids $SECURITY_GROUP 
     --tag-specifications "ResourceType=Instance,Tags=[{Key=Name,Value=$i}]" | jq -r '.Instances[0].PrivateIpAddress')
 
-    echo "$G created $i instaces: $IP_ADDRESS"
+    echo "created $i instaces: $IP_ADDRESS"
 
 done
 
