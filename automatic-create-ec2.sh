@@ -14,13 +14,13 @@ Y="\e[33m"
 for i in "${NAMES[@]}"
 do
 
-if [[ $i == "mongodb" || $i == "mysql"]]
-then
+   if [[ $i == "mongodb" || $i == "mysql"]]
+   then
     INSTANCE_TYPE="t3.medium"
-else
+   else
     INSTANCE_TYPE="t3.micro"
     
-fi
+   fi
     echo "$Y Creating $i...........Instance"
 
     IP_ADDRESS=$(aws ec2 run-instances --image-id $IMAGE_ID --instance-type $INSTANCE_TYPE  --security-group-ids $SECURITY_GROUP 
