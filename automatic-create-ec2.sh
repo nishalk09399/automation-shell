@@ -28,24 +28,21 @@ do
 
     #to update and create the DNS Records in aws. 
 
-    aws route53 change-resource-record-sets --hosted-zone-id Z07869251AQBK6AKJKM03 --change-batch
+    aws route53 change-resource-record-sets --hosted-zone-id Z07869251AQBK6AKJKM03 --change-batch '
     {
 
             "Changes": [{
             "Action": "CREATE",
                         "ResourceRecordSet": {
-                                    "Name": "$i.$DOMAIN_NAME",
-                                    "Type": "A",
-                                    "TTL": 300,
-                                    "ResourceRecords": [{ "Value": "$IP_ADDRESS"}]
-                                                                                      
+                             "Name": "$i.$DOMAIN_NAME",
+                             "Type": "A",
+                             "TTL": 300,
+                             "ResourceRecords": [{ "Value": "$IP_ADDRESS"}]
+                            }                                                         
                                                         
-                        }}]
-    }              
-
-
-
-
+                    }]
+    }
+    '              
 done
 
 
