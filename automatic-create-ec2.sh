@@ -4,6 +4,7 @@ NAMES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "cart" "user" "shipping"
 INSTANCE_TYPE=""
 IMAGE_ID=ami-03265a0778a880afb
 SECURITY_GROUP=sg-034b8c610c8a714d3
+DOMAIN_NAME=nishaldevops.online
 
 #conditions
 #if mysql or mongo instance should be in t3.medium and all other items instance should be t3.micro
@@ -38,9 +39,10 @@ do
                              "Type": "A",
                              "TTL": 300,
                              "ResourceRecords": [{ "Value": "$IP_ADDRESS"}]
-                            }                                                         
+
+                        }}]                                                         
                                                         
-                    }]
+                    
     }
     '              
 done
