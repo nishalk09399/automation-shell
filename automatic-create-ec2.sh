@@ -33,3 +33,9 @@ do
     }
     '
 done
+
+
+# Need to do improvements in this script
+
+# check instance is already created or not ?
+# update route53 records
