@@ -16,9 +16,9 @@ do
 
    if [[ $i == "mongodb" || $i == "mysql"]]
    then
-    INSTANCE_TYPE="t3.medium"
+       INSTANCE_TYPE="t3.medium"
    else
-    INSTANCE_TYPE="t3.micro"
+       INSTANCE_TYPE="t3.micro"
     
    fi
     echo "$Y Creating $i...........Instance"
